@@ -4,6 +4,9 @@
 
 import math
 
+def manouvellefonction():
+    print "newfunction"
+
 def perimetre_cercle(un_rayon):
     """Calculer le périmètre d'un cercle à partir de son rayon.
 	:param un_rayon: le rayon du cercle (positif)
@@ -21,7 +24,7 @@ def main():
 
     # calculer le périmètre
     perimetre = perimetre_cercle(le_rayon)
-
+    manouvellefonction()
     # afficher le périmètre à l'utilisateur
     print("Le périmètre d'un cercle de rayon", le_rayon, "est", perimetre)
 
