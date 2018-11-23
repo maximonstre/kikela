@@ -1,8 +1,21 @@
-# -*- coding: utf8 -*-
-# Ce programme calcule le périmètre d'un cercle dont
-# le rayon a été demandé au clavier à l'utilisateur.
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import math
+import requests as rq
+import math 
+
+#######VARIABLES POUR COMMUNICATION
+API_KEY = "941d176c66ef92d587e6d7e1c03040b1"
+AUTH_USER = ""
+URL_BASE = "api.openweathermap.org/data/2.5/weather?q=London"
+
+#######HEADER
+headers = {
+    'X-Auth-User': AUTH_USER,
+    'X-Auth-Key': API_KEY,
+   }
+
+
 
 def perimetre_cercle(un_rayon):
     """Calculer le périmètre d'un cercle à partir de son rayon.
@@ -16,14 +29,15 @@ def perimetre_cercle(un_rayon):
 def main():
     """Le programme principal."""
     # demander le rayon à l'utilisateur
-    saisie = input("Rayon du cercle : ")    # une chaîne de caractères
-    le_rayon = float(saisie)                # convertie en un nombre réel
-
+    #saisie = input("Rayon du cercle : ")    # une chaîne de caractères
+    #le_rayon = float(saisie)                # convertie en un nombre réel
     # calculer le périmètre
-    perimetre = perimetre_cercle(le_rayon)
-
+    # perimetre = perimetre_cercle(le_rayon)
     # afficher le périmètre à l'utilisateur
-    print("Le périmètre d'un cercle de rayon", le_rayon, "est", perimetre)
+    # print("Le périmètre d'un cercle de rayon", le_rayon, "est", perimetre)
+    test = rq.request("GET",URL_BASE, headers=headers, verify=False)
+    print (test.text)
+
 
 if __name__ == "__main__":
     main()
